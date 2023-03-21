@@ -1,0 +1,35 @@
+.header {
+  min-height: 10vh;
+  background-color: deepskyblue;
+  display: flex;
+  align-items: center;
+}
+
+
+.main {
+  min-height: 80vh;
+}
+
+.footer {
+  min-height: 10vh;
+  background-color: deepskyblue;
+}
+
+.home {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 2vw;
+
+}
+
+.nav-bar>a {
+  text-decoration: none;
+  padding:5px;
+}
