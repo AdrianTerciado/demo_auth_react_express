@@ -14,6 +14,7 @@ decodeToken.use(async (req, res, next) => {
                     error: err.message
                 });
             } else {
+                console.log("decoded", decoded);
                 req.token = decoded;
                 next();
             }

@@ -18,9 +18,9 @@ const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await usersModels.login(email, password);
-        console.log(user);
+        console.log("USER IN DB", user);
         if (user.length > 0) {
-            const token = createToken({ email });
+            const token = createToken({ email:user[0].email, role: user[0].role });
             res.status(200)
                 .set('Authorization', `Bearer ${token}`)
                 .cookie('access_token', token)
