@@ -1,11 +1,11 @@
 import React from "react";
-import { Outlet } from 'react-router-dom';
+
 
 
 const ProtectedRoutes = ({ component, logged }) => {
 
     return (
-        logged ? component : <Outlet />
+        logged ? component : <div>Please log in first</div>
     )
 
 

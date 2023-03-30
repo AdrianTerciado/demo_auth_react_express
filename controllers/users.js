@@ -18,13 +18,13 @@ const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await usersModels.login(email, password);
-        console.log("USER IN DB", user);
         if (user.length > 0) {
-            const token = createToken({ email:user[0].email, role: user[0].role });
+            const token = createToken({ email: user[0].email, role: user[0].role });
             res.status(200)
                 .set('Authorization', `Bearer ${token}`)
                 .cookie('access_token', token)
-                .send();
+                .json({ role: user[0].role })
+                .send()
         } else {
             res.status(400).json({ msg: "wrong credentials" });
         }

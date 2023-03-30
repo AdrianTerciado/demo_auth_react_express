@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return <nav className="nav-bar">
     <Link to="/">Home</Link>
-    <Link to="/admin">Admin View</Link>
-    <Link to="/user">User</Link>
+    <Link to="/admin/dashboard">Admin Dashboard</Link>
+    <Link to="/admin/other">Admin</Link>
+    <Link to="/user/dashboard">User Dashboard</Link>
+    <Link to="/user/other">User</Link>
  
   </nav>;
 };

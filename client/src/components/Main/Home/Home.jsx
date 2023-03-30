@@ -36,6 +36,7 @@ const Home = (props) => {
       console.log(cookies);
       axios.defaults.headers.common['Authorization'] = cookies;
       props.logged.setLogged(true);
+      props.role.setRole(request.data.role);
       setMessage(`Authorisation Header ${cookies}`);
 
     } catch (error) {
