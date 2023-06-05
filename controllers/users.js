@@ -47,12 +47,24 @@ const logout = async (req, res) => {
 };
 
 
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await usersModels.getAllUsers();
+        console.log(users);
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
+
 
 
 const users = {
     signup,
     login,
-    logout
+    logout,
+    getAllUsers
 };
 
 

@@ -13,11 +13,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+app.use('/api/test', (req, res) => { res.status(200).json({ status: "connected" }) })
 app.use('/api/users', usersRouter);
 app.use('/api/resources', resourcesRouter);
 
 
-app.get("*", (req, res) => { res.sendFile(path.join(__dirname + 'client/build/index.html')) });
+app.get("*", (req, res) => { res.sendFile(path.join(__dirname + '/client/build/index.html')) });
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

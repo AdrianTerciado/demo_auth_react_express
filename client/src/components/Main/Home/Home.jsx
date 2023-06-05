@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 const Home = (props) => {
@@ -6,6 +6,21 @@ const Home = (props) => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("user");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const testConnection = async () => {
+      try {
+        const request = await axios({
+          method: 'get',
+          url: 'api/test',
+        })
+        console.log(request.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    testConnection();
+  }, [])
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);

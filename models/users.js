@@ -25,9 +25,22 @@ const login = async (email, password) => {
     };
 };
 
+const getAllUsers = async () => {
+    try {
+        const users = await User.find({});
+        console.log("USERS", users);
+        return users
+
+    } catch (error) {
+        console.log(error.message);
+        throw error;
+    }
+};
+
 const userModels = {
     signup,
-    login
+    login,
+    getAllUsers
 };
 
 
