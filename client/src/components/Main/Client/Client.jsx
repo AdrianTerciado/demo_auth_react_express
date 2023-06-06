@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const User = () => {
+const Client = () => {
 
   const [message, setMessage] = useState("");
 
@@ -13,7 +13,6 @@ const User = () => {
           url: '/api/resources/protectedresource',
           withCredentials: true,
         });
-        console.log("****", request.data);
         setMessage(request.data.msg);
       } catch (error) {
         console.log(error.message)
@@ -24,11 +23,11 @@ const User = () => {
   }, [])
 
   return <div>
-    <h1>User</h1>
+    <h1>Client</h1>
 
     {message ? <h3>{message}</h3> : ""}
 
   </div>;
 };
 
-export default User;
+export default Client;

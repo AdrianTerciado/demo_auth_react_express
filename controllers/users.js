@@ -5,6 +5,7 @@ const { createToken } = require('../config/jsonWebToken');
 const signup = async (req, res) => {
     try {
         const { email, password, role } = req.body;
+        console.log("****", role);
         const newUser = await usersModels.signup(email, password, role)
         res.status(201).json({ msg: "Signed Up" });
     } catch (error) {

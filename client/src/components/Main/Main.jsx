@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Home from './Home';
 import Admin from './Admin';
 import AdminDashboard from './AdminDashboard';
-import User from './User';
-import UserDashboard from './UserDashboard';
+import Client from './Client';
+import ClientDashboard from './ClientDashboard';
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoutes from "../../utils/ProtectedRoutes";
 import RoleManager from "../../utils/RoleManager/RoleManager";
@@ -41,22 +41,22 @@ const Main = () => {
                 allowedRoles={["admin"]} />}
               logged={logged} />} />
         </Route>
-        <Route path="user/*">
+        <Route path="client/*">
           <Route
             path="dashboard"
             element={<ProtectedRoutes
               component={<RoleManager
-                component={<UserDashboard />}
+                component={<ClientDashboard />}
                 role={role}
-                allowedRoles={["user"]} />}
+                allowedRoles={["client"]} />}
               logged={logged} />} />
           <Route
             path="other"
             element={<ProtectedRoutes
               component={<RoleManager
-                component={<User />}
+                component={<Client />}
                 role={role}
-                allowedRoles={["user"]} />}
+                allowedRoles={["client"]} />}
               logged={logged} />} />
         </Route>
       </Route>

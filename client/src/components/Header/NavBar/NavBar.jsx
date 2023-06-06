@@ -6,8 +6,8 @@ const NavBar = () => {
     <Link to="/">Home</Link>
     <Link to="/admin/dashboard">Admin Dashboard</Link>
     <Link to="/admin/other">Admin</Link>
-    <Link to="/user/dashboard">User Dashboard</Link>
-    <Link to="/user/other">User</Link>
+    <Link to="/client/dashboard">User Dashboard</Link>
+    <Link to="/client/other">User</Link>
  
   </nav>;
 };

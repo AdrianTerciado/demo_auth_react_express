@@ -4,10 +4,10 @@ const resources = require('../controllers/resources');
 const getAccessToken = require('../middleware/getAccessToken');
 const decodeToken = require('../middleware/decodeToken');
 const adminRoutes = require('../middleware/adminRoutes');
-const userRoutes = require('../middleware/userRoutes');
+const clientRoutes = require('../middleware/clientRoutes');
 
 
-resourcesRouter.get('/protectedresource', getAccessToken, decodeToken, userRoutes, resources.getProtectedResources);
+resourcesRouter.get('/protectedresource', getAccessToken, decodeToken, clientRoutes, resources.getProtectedResources);
 
 
 

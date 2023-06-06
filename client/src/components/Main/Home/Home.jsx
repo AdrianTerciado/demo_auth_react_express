@@ -4,7 +4,7 @@ import axios from 'axios';
 const Home = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("client");
   const [message, setMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
@@ -48,6 +48,7 @@ const Home = (props) => {
 
   const handleSignUp = async () => {
     try {
+      console.log("ROLE SENDING", role);
       const request = await axios({
         method: 'post',
         url: 'api/users/signup',
@@ -122,7 +123,7 @@ const Home = (props) => {
     <input type="password" placeholder="password" onChange={handlePassword} />
     {passwordMessage ? <span>{passwordMessage}</span> : ""}
     <select value={role} onChange={handleRole} >
-      <option value="user">User</option>
+      <option value="client">Client</option>
       <option value="admin">Admin</option>
     </select>
     <span>{message}</span>

@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import UserDashboard from "./UserDashboard";
+import ClientDashboard from "./ClientDashboard";
 
-describe("UserDashboard", () => {
+describe("ClientDashboard", () => {
   test("matches snapshot", () => {
-    const wrapper = shallow(<UserDashboard />);
+    const wrapper = shallow(<ClientDashboard />);
     expect(wrapper).toMatchSnapshot();
   });
 });
