@@ -4,8 +4,10 @@ import axios from 'axios';
 const Home = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user");
+  const [role, setRole] = useState("");
   const [message, setMessage] = useState("");
+  const [passwordMessage, setPasswordMessage] = useState("");
+  const [emailMessage, setEmailMessage] = useState("");
 
   useEffect(() => {
     const testConnection = async () => {
@@ -21,6 +23,24 @@ const Home = (props) => {
     }
     testConnection();
   }, [])
+
+  useEffect(() => {
+    const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    if (!emailValidation.test(email) && email.length > 0) {
+      setEmailMessage("Email must have a valid format");
+    } else {
+      setEmailMessage("");
+    }
+  }, [email])
+
+  useEffect(() => {
+    const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{9,}$/
+    if (!passwordValidation.test(password) && password.length > 0) {
+      setPasswordMessage("Password must contain lowecase, uppercase, digit and special character");
+    } else {
+      setPasswordMessage("");
+    }
+  }, [password])
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -97,8 +117,10 @@ const Home = (props) => {
 
 
   return <div className="home">
-    <input type="text" placeholder="email" onChange={handleEmail} />
-    <input type="text" placeholder="password" onChange={handlePassword} />
+    <input type="email" placeholder="email" onChange={handleEmail} />
+    {emailMessage ? <span>{emailMessage}</span> : ""}
+    <input type="password" placeholder="password" onChange={handlePassword} />
+    {passwordMessage ? <span>{passwordMessage}</span> : ""}
     <select value={role} onChange={handleRole} >
       <option value="user">User</option>
       <option value="admin">Admin</option>
