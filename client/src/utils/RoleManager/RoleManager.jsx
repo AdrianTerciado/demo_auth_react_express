@@ -6,7 +6,7 @@ const RoleManager = ({ role, allowedRoles, component }) => {
     return component;
   }
   else {
-    return <div>Unauthorized</div>
+    return <div><span>Unauthorized</span></div>
   }
 };
 

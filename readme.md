@@ -6,11 +6,12 @@ You can visit a deployed version of this app [here](https://demo-auth-react-expr
 
 ```zsh
 npm install
-touch .env
 echo 'MONGO_URI=\nMY_TOKEN_SECRET='>.env
 ```
 Fill out .env\
 You can generate MY_TOKEN_SECRET using this [password generator](https://www.lastpass.com/es/features/password-generator#generatorTool)
+
+connect to a MongoDB Database (i.e. `mongodb://localhost:27017`)
 
 ```
 MONGO_URI=
@@ -54,7 +55,7 @@ Data structure
 4. Login
 
 This endpoint must 
-- Retreive user role from the database using provided credentials
+- Retrieve user role from the database using provided credentials
 - Set Authorization header
 - Send cookie
 
@@ -64,13 +65,15 @@ This endpoint must
 &lt;Home/&gt; component manages sign up and login. 
 Role is allowed to be selected only for learning purposes.
 
+&lt;Main/&gt; component stores the logged and role states.
+Admin and Client routes are nested respectively.
 
 # Protected Routes
 This components takes a component and the logged in state as props. 
-If logged is true, renders the component passed as props, otherwise renders a message to log in. 
+If logged is true, renders the component passed as props, otherwise renders a message to log in. This usually would redirect to login.  
 
 # Role manager
-This component takes the user role, an array of allowed roles and a component, if the user role is in the list of allowed roles it renders the component. Otherwise it renders an "unauthorized" message
+This component takes an array of allowed roles and a component, if the user role is in the list of allowed roles it renders the component. Otherwise it renders an "unauthorized" message
 
 ProtectedRoutes and RoleManager are nested in the &lt;Route/&gt; components in &lt;Main/&gt;.
 
