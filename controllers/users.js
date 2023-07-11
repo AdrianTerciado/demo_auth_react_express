@@ -23,7 +23,6 @@ const login = async (req, res) => {
             const token = createToken({ email: user[0].email, role: user[0].role });
             res.status(200)
                 .set('Authorization', `Bearer ${token}`)
-                .cookie('access_token', token)
                 .json({ role: user[0].role })
                 .send()
         } else {
@@ -39,7 +38,6 @@ const logout = async (req, res) => {
     try {
         res.status(200)
             .set('Authorization', "")
-            .cookie('access_token', "")
             .send();
     } catch (error) {
         res.status(400).json({ msg: error.message });

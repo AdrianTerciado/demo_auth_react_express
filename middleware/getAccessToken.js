@@ -3,11 +3,9 @@ const getAccessToken = express.Router();
 
 
 getAccessToken.use(async (req, res, next) => {
-    const { cookie } = req.headers;
-    if (cookie.includes(`access_token=`)) {
-        const cookies = cookie.split(',');
-        const accessToken = cookies[0];
-        const token = accessToken.split('=')[1];
+    const { authorization } = req.headers;
+    if (authorization.includes(`Bearer`)) {
+        const token = authorization.split(' ')[1];
         if (token) {
             req.token = token;
             next();

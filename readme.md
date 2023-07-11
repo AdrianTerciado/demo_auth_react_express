@@ -47,8 +47,8 @@ Data structure
 
 3. Middlewares
 
-* **getAccessToken** => inspect cookies and [save the access_token in the request object](https://stackoverflow.com/questions/10983500/how-do-i-store-request-level-variables-in-node-js)
-* **decodeToken** => Check that the access_token has a valid signature and decode the payload using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken). Save the decoded payload in the request object
+* **getAccessToken** => inspect authorization header and save the token in this header
+* **decodeToken** => Check that token has a valid signature and decode the payload using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken). Save the decoded payload in the request object
 * **adminRoutes** => used to protect admin routes
 * **userRoutes** => used to protect user routes
 
@@ -57,7 +57,9 @@ Data structure
 This endpoint must 
 - Retrieve user role from the database using provided credentials
 - Set Authorization header
-- Send cookie
+
+In React, we must use this response to 
+
 
 
 ## React 
