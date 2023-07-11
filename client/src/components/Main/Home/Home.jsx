@@ -62,18 +62,15 @@ const Home = (props) => {
 
   const handleLogin = async () => {
     try {
-      const request = await axios({
+      const response = await axios({
         method: 'post',
         url: 'api/users/login',
         data: { email, password }
       });
-      console.log(request.headers);
-      const cookies = request.headers.authorization;
-      console.log(cookies);
-      axios.defaults.headers.common['Authorization'] = cookies;
+  
       props.logged.setLogged(true);
-      props.role.setRole(request.data.role);
-      setMessage(`Authorisation Header ${cookies}`);
+      props.role.setRole(response.data.role);
+      setMessage(`Cookie ${response.data.cookie}`);
 
     } catch (error) {
       console.log(error.message);

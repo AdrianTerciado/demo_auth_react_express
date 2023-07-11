@@ -22,9 +22,8 @@ const login = async (req, res) => {
         if (user.length > 0) {
             const token = createToken({ email: user[0].email, role: user[0].role });
             res.status(200)
-                .set('Authorization', `Bearer ${token}`)
                 .cookie('access_token', token)
-                .json({ role: user[0].role })
+                .json({ role: user[0].role, cookie: token })
                 .send()
         } else {
             res.status(400).json({ msg: "wrong credentials" });

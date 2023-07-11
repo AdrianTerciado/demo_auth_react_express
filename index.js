@@ -8,6 +8,7 @@ require('./config/mongoConnection');
 const usersRouter = require('./routes/users');
 const resourcesRouter = require('./routes/resources');
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -12,7 +12,7 @@ Fill out .env\
 You can generate MY_TOKEN_SECRET using this [password generator](https://www.lastpass.com/es/features/password-generator#generatorTool)
 
 connect to a MongoDB Database (i.e. `mongodb://localhost:27017`)
-
+If yo use Mongo Atlas make sure your IP is whitelisted in Atlas
 ```
 MONGO_URI=
 MY_TOKEN_SECRET=
