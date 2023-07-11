@@ -55,10 +55,10 @@ Data structure
 4. Login
 
 This endpoint must 
-- Retrieve user role from the database using provided credentials
-- Set Authorization header
+- Retrieve user role from the database using provided credentials (cookie)
 - Send cookie
 
+React will send this cookie automatically in the following requests. 
 
 ## React 
 

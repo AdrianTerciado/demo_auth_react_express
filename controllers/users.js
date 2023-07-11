@@ -37,7 +37,6 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
     try {
         res.status(200)
-            .set('Authorization', "")
             .cookie('access_token', "")
             .send();
     } catch (error) {
