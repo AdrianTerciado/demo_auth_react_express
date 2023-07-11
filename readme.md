@@ -2,6 +2,9 @@
 
 You can visit a deployed version of this app [here](https://demo-auth-react-express.onrender.com/).
 
+To see authentication only with cookies check the branch 'cookies'
+To see authentication only with headers check the branch 'auth_headers'
+
 ### RUNNING THE APP 
 
 ```zsh
